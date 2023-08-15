@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your simple calculator!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+            <div class="container-fluid d-flex justify-content-center">
+              <a class="navbar-brand" href="#">Carlo's Calculator!</a>
+                <form class="d-flex">
+                  <a href="" target="_blank"><button class="btn btn-outline-dark" type="submit">My GitHub page</button></a>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main class="d-flex justify-content-center align-items-center text-light">
+        <div class="outside-container container text-center bg-primary">
+            <div class="row display-5">
+                <div class="col-9  d-flex justify-content-center output align-items-center border" id="output"></div>
+                <button class="col bg-danger d-flex justify-content-center align-items-center border p-5" id="delete">⌫</button>
+            </div>
+            <div class="row">
+                <button class="p-3 col number display-6 p-1 border" id="seven">7</button>
+                <button class="p-3 col number display-6 p-1 border" id="eight">8</button>
+                <button class="p-3 col number display-6 p-1 border" id="nine">9</button>
+                <button class="p-3 col bg-danger display-6 p-1 border" id="plus">+</button>
+            </div>
+            <div class="row">
+                <button class="p-3 col number display-6 p-1 border" id="four">4</button>
+                <button class="p-3 col number display-6 p-1 border" id="five">5</button>
+                <button class="p-3 col number display-6 p-1 border" id="six">6</button>
+                <button class="p-3 col bg-danger display-6 p-1 border" id="minus">-</button>
+            </div>
+            <div class="row">
+                <button class="p-3 col number display-6 p-1 border" id="one">1</button>
+                <button class="p-3 col number display-6 p-1 border" id="two">2</button>
+                <button class="p-3 col number display-6 p-1 border" id="three">3</button>
+                <button class="p-3 col bg-danger display-6 p-1 border" id="multiply">x</button>
+            </div>
+            <div class="row">
+                <button class="p-3 col-9 number display-6 p-1 border" id="zero">0</button>
+                <button class="p-3 col bg-danger display-6 p-1 border" id="divide">&divide;</button>
+            </div>
+            <div class="row">
+                <button class="col bg-success display-3 border p-3" id="equals">=</button>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid d-flex justify-content-center align-items-center mt-5 bg-dark text-light p-4 position-fixed bottom-0">
+        Web created by Carlo Chang
+    </footer>
+</body>
+</html>

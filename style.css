@@ -1,0 +1,14 @@
+body {
+    background-image: url('math.jpeg'); /*https://www.skape.ed.ac.uk/events/what-gets-measured-gets-done-the-role-of-metrics-in-building-the-eu-anti-poverty-policy/*/
+}
+
+.outside-container, .output, .number {
+    background-color: dimgray;
+    color: #FFF;
+}
+
+button {
+    transition: 0.1s;
+}
+
+
