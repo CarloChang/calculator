@@ -7,3 +7,12 @@ A simple calculator using JS, HTML and CSS.
 
 ### Check out the live preview!
 
+https://raw.githack.com/CarloChang/calculator/main/index.html
+
+##### To update
+
+In the future I may add more functions to the calculator such as: 
+
+- Users can use floating numbers
+- Backspace button
+- Keyboard support
