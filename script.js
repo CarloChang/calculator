@@ -1,6 +1,8 @@
 // Operation buttons
 let canUseFirstValue = true;
 let canUseSecondValue = false;
+let firstValue = "";
+let storedOperator = null;
 
 
 function adition (a,b) {
@@ -35,14 +37,23 @@ function division (a,b) {
 }
 
 function operate(firstValue, operator, secondValue) {
-    if (displayValue === "" && displaySecondValue === ""){
-        return;
+    if (firstValue === "" && secondValue !== "") {
+        firstValue = parseFloat(secondValue);
     }
-    canUseFirstValue = true;
-    canUseSecondValue = false;
-    console.log(displayValue,displaySecondValue);
-    return operator(firstValue, secondValue);
+    if (operator === adition) {
+        adition(firstValue, secondValue);
+    } else if (operator === subtraction) {
+        subtraction(firstValue, secondValue);
+    } else if (operator === multiplication) {
+        multiplication(firstValue, secondValue);
+    } else if (operator === division) {
+        division(firstValue, secondValue);
+    }
+    
+    // Return the result here
+    return displayElement.textContent;
 }
+
 
 // Display in general
 
@@ -53,6 +64,7 @@ function deleteEverything() {
     displayElement.textContent = "";
     displayValue = "";
     displaySecondValue = "";
+    firstValue = "";
     canUseFirstValue = true;
     canUseSecondValue = false;
 }
@@ -63,11 +75,17 @@ function updateDisplay(value) {
 
 function setOperatorAndState(operatorFunc) {
     if (displaySecondValue !== ""){
-        console.log('test')
+        if (storedOperator !== null) {
+            firstValue = operate(firstValue, storedOperator, displaySecondValue);
+        } else {
+            firstValue = displayValue;
+        }
+        displayValue = firstValue
     }
     operatorSelected = operatorFunc;
     canUseFirstValue = false;
     canUseSecondValue = true;
+    storedOperator = operatorSelected; 
 }
 
 const numberButton = document.querySelectorAll('.number');
@@ -76,11 +94,9 @@ numberButton.forEach(button => {
         if (canUseFirstValue === true) {
             displayValue += button.id;
             updateDisplay(displayValue);
-            console.log(displayValue, 'first')
         } else if (canUseSecondValue === true){
             displaySecondValue += button.id;
-            updateDisplay(displaySecondValue)
-            console.log(displaySecondValue,'second');
+            updateDisplay(displaySecondValue);
         }
     });
 });
@@ -101,19 +117,3 @@ equals.addEventListener('click', () => operate(displayValue,operatorSelected,dis
 
 const deleteButton = document.getElementById('delete');
 deleteButton.addEventListener("click", () => deleteEverything());
-
-/*Notes:
-Hardest part by far, making the equals work with a second input/value.
-
-Primero hay que hacer que el operator sea modificable con cada button de los operadores. //De momento funciona
-Segundo hay que crear otro displayValue (quizás displaySecondValue) que se active una vez el operador haya sido clickeado,
-quitando a su vez displayElement.textContent = "" y pasando como parámetro displaySecondValue. Ahora bien, como se puede lograr eso? 
-
-Se me ocurre utilizar otro getElement o querySelector y añadir quizás otra clase, probar con un console.log()
-
-Quizás lo mejor sea hacer una funcion que tome como valores 
-
-La calculadora le falta dos pasos, primero: que cuando presione igual, y luego le de a un operador y después a un número, utilice el resultado previo
-como primer valor (displayValue)
-
-Segundo: que si se llega a presionar otro número después de presionar el igual, este resetea todo. //De momento funciona*/
